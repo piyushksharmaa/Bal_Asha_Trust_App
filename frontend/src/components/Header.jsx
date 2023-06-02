@@ -10,8 +10,8 @@ const Header = () => {
         <Link to="/Projects">Our Projects</Link>
         <Link to="/impact">Impact</Link>
         <Link to="/Contact">Contact Us</Link>
-        <Link to="/Donate">Donate Now!</Link>
         <Link to="/Login">Login</Link>
+        <Link to="/Donate">Donate Now!</Link>
       </main>
     </nav>
   );
