@@ -1,62 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LoginBox from './LoginBox';
+import './ParentComponent.css';
 
-class ParentComponent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showLoginBox: false
-        };
-    }
+const ParentComponent = () => {
+    const [showLoginForm, setShowLoginForm] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    handleLoginButtonClick = () => {
-        this.setState({ showLoginBox: true });
+    const handleLoginClick = () => {
+        setShowLoginForm(true);
     };
 
-    render() {
-        const { showLoginBox } = this.state;
+    const handleLogin = (e) => {
+        e.preventDefault();
 
-        return (
-            <div>
-                <button onClick={this.handleLoginButtonClick}>Login</button>
-                {/* Other content */}
-                {showLoginBox && <LoginBox />}
-            </div>
-        );
-    }
-}
+        console.log('Login:', email, password);
+    };
 
-class LoginBox extends React.Component {
-    render() {
-        return (
-            <div className="login-box">
-                <h2>Login or Sign Up</h2>
-                <form>
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" />
+    return (
+        <div>
 
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" />
-
-                    <button type="submit">Login</button>
-                </form>
-
-                <div className="divider">or</div>
-
-                <form>
-                    <label htmlFor="signup-email">Email:</label>
-                    <input type="email" id="signup-email" name="signup-email" />
-
-                    <label htmlFor="signup-password">Password:</label>
-                    <input type="password" id="signup-password" name="signup-password" />
-
-                    <button type="submit">Sign Up</button>
-                </form>
-            </div>
-        );
-    }
-}
+            {!showLoginForm ? (
+                <button className="login-button" onClick={handleLoginClick}>
+                    Login or Sign up
+                </button>
+            ) : (
+                <LoginBox
+                    email={email}
+                    password={password}
+                    setEmail={setEmail}
+                    setPassword={setPassword}
+                    onLogin={handleLogin}
+                />
+            )}
+        </div>
+    );
+};
 
 export default ParentComponent;
-
-
-
