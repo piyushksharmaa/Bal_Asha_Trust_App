@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import ParentComponent from "./Parent";
 const Header = () => {
   return (
     <nav>
@@ -10,7 +10,7 @@ const Header = () => {
         <Link to="/Projects">Our Projects</Link>
         <Link to="/impact">Impact</Link>
         <Link to="/Contact">Contact Us</Link>
-        <Link to="/Login">Login</Link>
+        <ParentComponent />
         <Link to="/Donate">Donate Now!</Link>
       </main>
     </nav>
