@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px;
+    text-align: center;
+}
+
+.item {
+    background-color: greenyellow;
+    color: palevioletred;
+    padding: 20px;
+    border-radius: 8px;
+}

@@ -10,8 +10,9 @@ const Header = () => {
         <Link to="/Projects">Our Projects</Link>
         <Link to="/impact">Impact</Link>
         <Link to="/Contact">Contact Us</Link>
-        <ParentComponent />
+
         <Link to="/Donate">Donate Now!</Link>
+        <ParentComponent />
       </main>
     </nav>
   );

@@ -1,7 +1,57 @@
-.login-button {
-    background-color: #003366;
+.parent-container {
+    position: relative;
+}
+
+.new-user-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.new-user-form h2 {
+    margin-top: 0;
+}
+
+.new-user-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-user-form label {
+    margin-bottom: 5px;
+}
+
+.new-user-form input,
+.new-user-form select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.new-user-form button[type="submit"] {
+    padding: 10px;
+    background-color: #007bff;
     color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.new-user-form button[type="submit"]:hover {
+    background-color: #0069d9;
+}
+
+.login-button {
     padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
     border: none;
     border-radius: 4px;
     font-size: 16px;
@@ -9,5 +59,9 @@
 }
 
 .login-button:hover {
-    background-color: #002255;
+    background-color: #0069d9;
+}
+
+.login-button:focus {
+    outline: none;
 }
