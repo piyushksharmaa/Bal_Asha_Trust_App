@@ -1,182 +1,170 @@
-.container {
+.container2 {
   display: flex;
   flex-direction: row;
   width: 100%;
+  .left2 {
+    display: flex;
+    width: 20%;
+  }
 }
-.left {
-  display: flex;
-  width: 20%;
-}
-.Leftsidebar {
-  height: 100vh;
+
+// CSS for LeftSideBar
+.Leftsidebar2 {
   width: 100%;
   background-color: rgb(155, 225, 152);
-  .searchbar {
-    margin-top: 15px;
-    margin-left: 15px;
-    margin-bottom: 10px;
+  .LeftsidebarList2 {
+    height: auto;
     padding: 0;
-    height: 30px;
-    width: 180px;
-    > input {
-      border-radius: 2%;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
-.LeftsidebarList {
-  height: auto;
-  padding: 0;
-  width: 100%;
-  .row {
     width: 100%;
-    height: 60px;
-    list-style-type: none;
-    margin: 0%;
-    display: flex;
-    color: black;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
-    &:hover {
-      cursor: pointer;
-      color: white;
-      background-color: rgb(60, 212, 83);
-    }
-    #icon {
-      flex: 30%;
-      display: grid;
-      place-items: center;
-    }
-    #title {
-      flex: 70%;
+    .row2 {
+      width: 100%;
+      height: 60px;
+      list-style-type: none;
+      margin: 0%;
+      display: flex;
+      color: black;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      &:hover {
+        cursor: pointer;
+        color: white;
+        background-color: rgb(60, 212, 83);
+      }
+      #icon2 {
+        flex: 30%;
+        display: grid;
+        place-items: center;
+      }
+      #title2 {
+        flex: 70%;
+      }
     }
   }
 }
 
-.header {
+// For Dashboard Header
+.header2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-.right {
-  width: 80%;
-}
-.header {
-  display: flex;
-  height: 10%;
+  .right2 {
+    width: 80%;
+  }
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  .rightbar {
+  .rightbar2 {
     display: flex;
     flex-direction: row;
-    .notification {
+    .notification2 {
       padding: 0.8rem 0.9rem;
     }
   }
 
-  .name {
+  .name2 {
     margin: 0.5rem;
   }
-  .date {
+  .date2 {
     display: flex;
     margin: 0.9rem;
   }
 }
-.enclosing {
+
+// For Main Container
+.enclosing2 {
   background-image: url(https://balashatrust.org/wp-content/uploads/2019/09/banner-3.jpg);
   height: 90.2vh;
   object-fit: cover;
+  width: 1050px;
+  .profile2 {
+    transition: 0.3s ease-in-out;
+    margin: 0 auto;
+    margin-top: 60px;
+    border-radius: 2%;
+    width: 609px;
+    background-color: rgba(224, 224, 224, 0.8);
+    display: flex;
+    align-items: center;
+    .data2 {
+      width: 50%;
+      > ul {
+        > li {
+          list-style: none;
+          list-style-type: none;
+        }
+      }
+      .maindatalist2 {
+        .row2 {
+          display: flex;
+          flex-direction: row;
+          #title2 {
+            padding: 1rem;
+            font-weight: bold;
+          }
+          #value2 {
+            padding: 1rem;
+          }
+        }
+      }
+    }
+    .image2 {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      > img {
+        border-radius: 50%;
+      }
+    }
+  }
+  .profile-shift2 {
+    transition: 0.3s ease-in-out;
+    margin: 0 auto;
+    margin-left: 90px;
+    margin-top: 60px;
+    border-radius: 2%;
+    width: 609px;
+    background-color: rgba(224, 224, 224, 0.8);
+    display: flex;
+    align-items: center;
+    .data2 {
+      width: 50%;
+    }
+    .image2 {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      > img {
+        border-radius: 50%;
+      }
+    }
+    > ul {
+      > li {
+        list-style: none;
+        list-style-type: none;
+      }
+    }
+    .maindatalist2 {
+      .row2 {
+        display: flex;
+        flex-direction: row;
+        #title2 {
+          padding: 1rem;
+          font-weight: bold;
+        }
+        #value2 {
+          padding: 1rem;
+        }
+      }
+    }
+  }
 }
 
-.profile {
-  transition: 0.3s ease-in-out;
-  margin: 0 auto;
-  margin-top: 60px;
-  border-radius: 2%;
-  width: 609px;
-  background-color: rgba(224, 224, 224, 0.8);
-  display: flex;
-  align-items: center;
-  .data {
-    width: 50%;
-  }
-  .image {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    > img {
-      border-radius: 50%;
-    }
-  }
-  > ul {
-    > li {
-      list-style: none;
-      list-style-type: none;
-    }
-  }
-  .maindatalist {
-    .row {
-      display: flex;
-      flex-direction: row;
-      #title {
-        padding: 1rem;
-        font-weight: bold;
-      }
-      #value {
-        padding: 1rem;
-      }
-    }
-  }
-}
-.profile-shift {
-  transition: 0.3s ease-in-out;
-  margin: 0 auto;
-  margin-left: 90px;
-  margin-top: 60px;
-  border-radius: 2%;
-  width: 609px;
-  background-color: rgba(224, 224, 224, 0.8);
-  display: flex;
-  align-items: center;
-  .data {
-    width: 50%;
-  }
-  .image {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    > img {
-      border-radius: 50%;
-    }
-  }
-  > ul {
-    > li {
-      list-style: none;
-      list-style-type: none;
-    }
-  }
-  .maindatalist {
-    .row {
-      display: flex;
-      flex-direction: row;
-      #title {
-        padding: 1rem;
-        font-weight: bold;
-      }
-      #value {
-        padding: 1rem;
-      }
-    }
-  }
-}
-.rightsidebar {
+// For Right Side Bar
+
+.rightsidebar2 {
   position: relative;
 
   > button {
@@ -188,7 +176,7 @@
       border: 0;
     }
   }
-  .rightsidebaractive {
+  .rightsidebaractive2 {
     height: 589px;
     width: 250px;
     border-top-left-radius: 40px;
@@ -198,7 +186,7 @@
       margin-bottom: 10px;
       text-decoration: underline;
     }
-    .row {
+    .row2 {
       width: 100%;
       height: 60px;
       list-style-type: none;
@@ -214,7 +202,7 @@
     position: absolute;
 
     background-color: rgb(243, 165, 203);
-    .cancelbutton {
+    .cancelbutton2 {
       margin-top: 30px;
       margin-left: 10px;
       border-style: none;
@@ -223,7 +211,7 @@
         cursor: pointer;
       }
     }
-    .rightsidebarList {
+    .rightsidebarList2 {
       position: absolute;
       > li {
         list-style: none;
@@ -234,7 +222,7 @@
     top: -116%;
     transition: 0.3s ease-in-out;
   }
-  .rightsidebarnot {
+  .rightsidebarnot2 {
     transition: 0.3s ease-in-out;
     height: 100vh;
     width: 250px;
@@ -243,7 +231,7 @@
       margin-top: 10px;
       margin-bottom: 10px;
     }
-    .row {
+    .row2 {
       width: 100%;
       height: 60px;
       list-style-type: none;
@@ -264,7 +252,7 @@
     position: absolute;
 
     background-color: rgb(243, 165, 203);
-    .cancelbutton {
+    .cancelbutton2 {
       margin-top: 30px;
       margin-left: 10px;
       border-style: none;
@@ -273,7 +261,7 @@
         cursor: pointer;
       }
     }
-    .rightsidebarList {
+    .rightsidebarList2 {
       position: absolute;
       > li {
         list-style: none;

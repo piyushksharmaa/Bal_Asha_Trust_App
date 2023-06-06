@@ -1,25 +1,25 @@
 import React from "react";
-import DashboardHeader from "./DashboardHeader";
-import LeftSidebar from "./LeftSidebar";
-import Main from "./Main";
-import "../../styles/Dashboard.scss";
-import RightSidebar from "./RightSidebar";
+import DashboardHeader from "./DashboardHeader2";
+import LeftSidebar from "./LeftSidebar2";
+import Main from "./Main2";
+import "../../styles/DashboardCaseManagement.scss";
+import RightSidebar from "./RightSidebar2";
 import { useState, createContext } from "react";
 
 export const AppContext = createContext();
-const Dashboard = () => {
+const Dashboard_casemanagement = () => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => {
     setSidebar(!sidebar);
   };
 
   return (
-    <div className="dashboard">
-      <div className="container">
-        <div className="left">
+    <div className="dashboard2">
+      <div className="container2">
+        <div className="left2">
           <LeftSidebar />
         </div>
-        <div className="right">
+        <div className="right2">
           <AppContext.Provider value={{ sidebar, showSidebar }}>
             <DashboardHeader />
             <Main />
@@ -30,4 +30,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Dashboard_casemanagement;

@@ -1,5 +1,5 @@
 import React from "react";
-export const RightSidebarData = [
+export const RightSidebarData2 = [
   {
     title: "Collecting Details for Children1",
   },

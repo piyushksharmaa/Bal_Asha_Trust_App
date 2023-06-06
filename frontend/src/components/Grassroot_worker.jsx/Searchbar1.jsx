@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "../../styles/Searchbar.scss";
+import "../../styles/Searchbar1.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
-export const Searchbar = ({ placeholder, data }) => {
+export const Searchbar1 = ({ placeholder, data }) => {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
   const handleFilter = (event) => {

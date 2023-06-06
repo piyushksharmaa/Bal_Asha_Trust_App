@@ -1,0 +1,275 @@
+.container1 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  .left1 {
+    display: flex;
+    width: 20%;
+  }
+}
+
+// CSS for Left Side bar
+.Leftsidebar1 {
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(155, 225, 152);
+  .LeftsidebarList1 {
+    height: auto;
+    padding: 0;
+    width: 100%;
+    .row1 {
+      width: 100%;
+      height: 60px;
+      list-style-type: none;
+      margin: 0%;
+      display: flex;
+      color: black;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      &:hover {
+        cursor: pointer;
+        color: white;
+        background-color: rgb(60, 212, 83);
+      }
+      #icon1 {
+        flex: 30%;
+        display: grid;
+        place-items: center;
+      }
+      #title1 {
+        flex: 70%;
+      }
+    }
+  }
+}
+
+// CSS for the Header
+.header1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .right1 {
+    width: 80%;
+  }
+  height: 10%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  .rightbar1 {
+    display: flex;
+    flex-direction: row;
+    .notification1 {
+      padding: 0.8rem 0.9rem;
+    }
+  }
+
+  .name1 {
+    margin: 0.5rem;
+  }
+  .date1 {
+    display: flex;
+    margin: 0.9rem;
+  }
+}
+
+// CSS for Main Content
+.enclosing1 {
+  background-image: url(https://balashatrust.org/wp-content/uploads/2019/09/banner-3.jpg);
+  height: 90.2vh;
+  object-fit: cover;
+  width: 1050px;
+  .profile1 {
+    transition: 0.3s ease-in-out;
+    margin: 0 auto;
+    margin-top: 60px;
+    border-radius: 2%;
+    width: 609px;
+    background-color: rgba(224, 224, 224, 0.8);
+    display: flex;
+    align-items: center;
+    .data1 {
+      width: 50%;
+      > ul {
+        > li {
+          list-style: none;
+          list-style-type: none;
+        }
+      }
+      .maindatalist1 {
+        .row1 {
+          display: flex;
+          flex-direction: row;
+          #title1 {
+            padding: 1rem;
+            font-weight: bold;
+          }
+          #value1 {
+            padding: 1rem;
+          }
+        }
+      }
+    }
+    .image1 {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      > img {
+        border-radius: 50%;
+      }
+    }
+  }
+  .profile-shift1 {
+    transition: 0.3s ease-in-out;
+    margin: 0 auto;
+    margin-left: 90px;
+    margin-top: 60px;
+    border-radius: 2%;
+    width: 609px;
+    background-color: rgba(224, 224, 224, 0.8);
+    display: flex;
+    align-items: center;
+    .data1 {
+      width: 50%;
+    }
+    .image1 {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      > img {
+        border-radius: 50%;
+      }
+    }
+    > ul {
+      > li {
+        list-style: none;
+        list-style-type: none;
+      }
+    }
+    .maindatalist1 {
+      .row1 {
+        display: flex;
+        flex-direction: row;
+        #title1 {
+          padding: 1rem;
+          font-weight: bold;
+        }
+        #value1 {
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// For Right Side Bar
+.rightsidebar1 {
+  position: relative;
+
+  > button {
+    border-radius: 50%;
+    border: 0;
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(241, 185, 212);
+      border: 0;
+    }
+  }
+  .rightsidebaractive1 {
+    height: 589px;
+    width: 250px;
+    border-top-left-radius: 40px;
+    > h2 {
+      margin-left: 50px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-decoration: underline;
+    }
+    .row1 {
+      width: 100%;
+      height: 60px;
+      list-style-type: none;
+      margin: 6%;
+      display: flex;
+      color: rgb(87, 87, 87);
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    }
+    position: absolute;
+
+    background-color: rgb(243, 165, 203);
+    .cancelbutton1 {
+      margin-top: 30px;
+      margin-left: 10px;
+      border-style: none;
+      background-color: rgb(243, 165, 203);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .rightsidebarList1 {
+      position: absolute;
+      > li {
+        list-style: none;
+        list-style-type: none;
+      }
+    }
+    right: -643%;
+    top: -116%;
+    transition: 0.3s ease-in-out;
+  }
+  .rightsidebarnot1 {
+    transition: 0.3s ease-in-out;
+    height: 100vh;
+    width: 250px;
+    > h2 {
+      margin-left: 50px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .row1 {
+      width: 100%;
+      height: 60px;
+      list-style-type: none;
+      margin: 6%;
+      display: flex;
+      color: rgb(87, 87, 87);
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      &:hover {
+        cursor: pointer;
+        color: white;
+        background-color: rgb(252, 218, 235);
+      }
+    }
+    position: absolute;
+
+    background-color: rgb(243, 165, 203);
+    .cancelbutton1 {
+      margin-top: 30px;
+      margin-left: 10px;
+      border-style: none;
+      background-color: rgb(243, 165, 203);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .rightsidebarList1 {
+      position: absolute;
+      > li {
+        list-style: none;
+        list-style-type: none;
+      }
+    }
+    top: -116%;
+    right: -1648%;
+  }
+}

@@ -1,5 +1,5 @@
 import React from "react";
-export const Maindata = [
+export const Maindata1 = [
   {
     title: "Name",
     value: "Piyush Kumar Sharma",

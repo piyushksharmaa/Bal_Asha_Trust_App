@@ -1,6 +1,6 @@
 import React from "react";
 import PersonIcon from "@mui/icons-material/Person";
-export const LeftSidebarData = [
+export const LeftSidebarData1 = [
   {
     title: "Children1",
     icon: <PersonIcon />,
