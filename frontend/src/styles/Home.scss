@@ -1,0 +1,30 @@
+@import "colors";
+.images {
+  img {
+    width: 100%;
+    height: 100vh;
+  }
+}
+.Main-content {
+  height: 100vh;
+  width: 100%;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 8rem;
+
+  > p {
+    margin: 2rem;
+    display: flex;
+    text-align: center;
+  }
+  > button {
+    height: 44px;
+    width: 109px;
+    border-radius: 20px;
+    background-color: $sixth;
+    color: $first;
+    &:hover {
+      background-color: $fifth;
+    }
+  }
+}

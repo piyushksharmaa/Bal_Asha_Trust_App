@@ -10,6 +10,9 @@ nav {
   background-color: $first;
   top: 0%;
   z-index: 10;
+  > img {
+    height: 40px;
+  }
   > h1 {
     text-transform: uppercase;
   }
@@ -22,7 +25,11 @@ nav {
       margin: 1rem;
       &:hover {
         color: $fourth;
+        background-color: white;
       }
+    }
+    .icon {
+      margin-top: 13px;
     }
   }
 }
