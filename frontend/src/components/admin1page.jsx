@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AddChildrenDataPage.css';
+import './admin1page.css';
 
 const AddChildrenDataPage = () => {
     const [orphanageName, setOrphanageName] = useState('');

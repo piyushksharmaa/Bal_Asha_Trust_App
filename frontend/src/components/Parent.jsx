@@ -1,24 +1,42 @@
 import React, { useState, useRef, useEffect } from 'react';
-import LoginBox from './LoginBox';
 import './ParentComponent.css';
+
+
 const ParentComponent = () => {
     const [showOptions, setShowOptions] = useState(false);
+    const [selectedOption, setSelectedOption] = useState('');
+    const [showLogin, setShowLogin] = useState(false);
     const [showNewUserForm, setShowNewUserForm] = useState(false);
-    const [contactNumber, setContactNumber] = useState('');
-    const [newUserEmail, setNewUserEmail] = useState('');
-    const [newUserPassword, setNewUserPassword] = useState('');
-    const [selectedAdmin, setSelectedAdmin] = useState('');
-    const [Showlogin, SetShowLogin] = useState(false);
-    const [LoginEmail, setLoginEmail] = useState('');
-    const [LoginPassword, setLoginPassword] = useState('');
 
     const dropdownRef = useRef(null);
+    const loginBoxRef = useRef(null);
+    const newUserBoxRef = useRef(null);
 
     useEffect(() => {
         const handleOutsideClick = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target) &&
+                event.target.className !== 'login-button'
+            ) {
                 setShowOptions(false);
-                SetShowLogin(false);
+                setShowLogin(false);
+                setShowNewUserForm(false);
+            }
+
+            if (
+                loginBoxRef.current &&
+                !loginBoxRef.current.contains(event.target) &&
+                event.target.className !== 'login-button'
+            ) {
+                setShowLogin(false);
+            }
+
+            if (
+                newUserBoxRef.current &&
+                !newUserBoxRef.current.contains(event.target) &&
+                event.target.className !== 'login-button'
+            ) {
                 setShowNewUserForm(false);
             }
         };
@@ -32,45 +50,23 @@ const ParentComponent = () => {
 
     const handleButtonClick = () => {
         setShowOptions(!showOptions);
+        setShowLogin(false);
         setShowNewUserForm(false);
-        SetShowLogin(false);
     };
 
     const handleOptionSelect = (option) => {
-        if (option === 'Admin1' || option === 'Admin2' || option === 'Admin3' || option === 'Admin4' || option === 'Admin5') {
-            setShowOptions(false);
-            SetShowLogin(true);
-        }
-        else if (option === 'New User') {
-            setShowOptions(false);
-            setShowNewUserForm(true);
-        } else {
-            setShowOptions(false);
-            setShowNewUserForm(false);
-            console.log('Selected Option:', option);
-
-        }
-    };
-    const handleadminSubmit = (e) => {
-        e.preventDefault();
-        const loginData = {
-            email: LoginEmail,
-            password: LoginPassword,
-        };
-        //data for login
-        console.log('LoginData:', loginData);
+        setSelectedOption(option);
+        setShowOptions(false);
+        setShowLogin(option === "Company's Login");
+        setShowNewUserForm(option === 'New User');
     };
 
-    const handleNewUserSubmit = (e) => {
-        e.preventDefault();
-        const userData = {
-            contactNumber,
-            email: newUserEmail,
-            password: newUserPassword,
-            admin: selectedAdmin,
-        };
-        console.log('New User Data:', userData);
-        // Perform any necessary action with the new user data
+    const handleAdminSubmit = (data) => {
+        console.log('Admin Login Data:', data);
+    };
+
+    const handleNewUserSubmit = (data) => {
+        console.log('New User Data:', data);
     };
 
     return (
@@ -80,47 +76,41 @@ const ParentComponent = () => {
             </button>
             {showOptions && (
                 <div className="dropdown-container" ref={dropdownRef}>
-                    <LoginBox
-                        showOptions={showOptions}
-                        onOptionSelect={handleOptionSelect}
-                        showNewUserForm={showNewUserForm}
-                        Showlogin={Showlogin}
-                        onLoginSubmit={handleadminSubmit}
-                        onNewUserSubmit={handleNewUserSubmit}
-                    />
+                    <select
+                        id="optionSelect"
+                        value={selectedOption}
+                        onChange={(e) => handleOptionSelect(e.target.value)}
+                    >
+                        <option value="">Select an option</option>
+                        <option value="Company's Login">Company's Login</option>
+                        <option value="New User">New User</option>
+                    </select>
                 </div>
             )}
             {showNewUserForm && (
-                <div className="new-user-form">
+                <div className="new-user-form" ref={newUserBoxRef}>
                     <h2>Join Our Helping Hands</h2>
-                    <form onSubmit={handleNewUserSubmit}>
+                    <form
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            const formData = new FormData(e.target);
+                            const data = Object.fromEntries(formData.entries());
+                            handleNewUserSubmit(data);
+                        }}
+                    >
                         <label htmlFor="contactNumber">Contact Number:</label>
-                        <input
-                            type="text"
-                            id="contactNumber"
-                            value={contactNumber}
-                            onChange={(e) => setContactNumber(e.target.value)}
-                        />
+                        <input type="text" id="contactNumber" name="contactNumber" required />
                         <label htmlFor="newUserEmail">Email:</label>
-                        <input
-                            type="email"
-                            id="newUserEmail"
-                            value={newUserEmail}
-                            onChange={(e) => setNewUserEmail(e.target.value)}
-                        />
+                        <input type="email" id="newUserEmail" name="newUserEmail" required />
                         <label htmlFor="newUserPassword">Password:</label>
                         <input
                             type="password"
                             id="newUserPassword"
-                            value={newUserPassword}
-                            onChange={(e) => setNewUserPassword(e.target.value)}
+                            name="newUserPassword"
+                            required
                         />
-                        <label htmlFor="adminSelection">Apply for Admin:</label>
-                        <select
-                            id="adminSelection"
-                            value={selectedAdmin}
-                            onChange={(e) => setSelectedAdmin(e.target.value)}
-                        >
+                        <label htmlFor="adminSelection">Select Admin:</label>
+                        <select id="adminSelection" name="adminSelection" required>
                             <option value="">Select Admin</option>
                             <option value="Admin 1">Admin 1</option>
                             <option value="Admin 2">Admin 2</option>
@@ -132,31 +122,35 @@ const ParentComponent = () => {
                     </form>
                 </div>
             )}
-            {Showlogin && (
-                <div className="new-user-form">
-                    <h2>Admin login</h2>
-                    <form onSubmit={handleadminSubmit}>
-
-                        <label htmlFor="LoginEmail">Email:</label>
-                        <input
-                            type="email"
-                            id="LoginEmail"
-                            value={LoginEmail}
-                            onChange={(e) => setLoginEmail(e.target.value)}
-                        />
-                        <label htmlFor="LoginPassword">Password:</label>
-                        <input
-                            type="password"
-                            id="LoginPassword"
-                            value={LoginPassword}
-                            onChange={(e) => setLoginPassword(e.target.value)}
-                        />
+            {showLogin && (
+                <div className="new-user-form" ref={loginBoxRef}>
+                    <h2>{selectedOption} Login</h2>
+                    <form
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            const formData = new FormData(e.target);
+                            const data = Object.fromEntries(formData.entries());
+                            handleAdminSubmit(data);
+                        }}
+                    >
+                        <label htmlFor="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" name="loginEmail" required />
+                        <label htmlFor="loginPassword">Password:</label>
+                        <input type="password" id="loginPassword" name="loginPassword" required />
+                        <label htmlFor="loginAdmin">Select Admin:</label>
+                        <select id="loginAdmin" name="loginAdmin" required>
+                            <option value="">Select Admin</option>
+                            <option value="Admin 1">Admin 1</option>
+                            <option value="Admin 2">Admin 2</option>
+                            <option value="Admin 3">Admin 3</option>
+                            <option value="Admin 4">Admin 4</option>
+                            <option value="Admin 5">Admin 5</option>
+                        </select>
+                        <button type="submit">Submit</button>
                     </form>
-                    <button type="submit">Submit</button>
                 </div>
             )}
         </div>
     );
 };
-export default ParentComponent;
-
+export default ParentComponent; 

@@ -4,37 +4,36 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: #f1f1f1;
+  background-color: #f9e5e8;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .login-box h2 {
   margin-bottom: 20px;
+  color: #494949;
 }
 
 .options-container {
   display: flex;
   flex-direction: column;
-
 }
 
 .admin-button,
 .new-user-button {
   margin-bottom: 10px;
   padding: 10px 20px;
-  background-color: #f5f5f5;
+  background-color: #b7e4c7;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  color: #494949;
 }
 
 .admin-button:hover,
 .new-user-button:hover {
-  background-color: #eaeaea;
+  background-color: #92d7a6;
 }
-
-
 
 .new-user-box {
   position: fixed;
@@ -43,19 +42,15 @@
   transform: translate(-50%, -50%);
   width: 400px;
   padding: 20px;
-  background-color: #f1f1f1;
+  background-color: #f9e5e8;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   z-index: 9999;
 }
 
-
-
-
-
-
 .new-user-box h2 {
   margin-bottom: 20px;
+  color: #494949;
 }
 
 .new-user-box form {
@@ -65,6 +60,7 @@
 
 .new-user-box label {
   margin-bottom: 10px;
+  color: #494949;
 }
 
 .new-user-box input,
@@ -77,12 +73,13 @@
 
 .new-user-box button {
   padding: 10px 20px;
-  background-color: #f5f5f5;
+  background-color: #b7e4c7;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  color: #494949;
 }
 
 .new-user-box button:hover {
-  background-color: #eaeaea;
+  background-color: #92d7a6;
 }

@@ -14,13 +14,14 @@ const Numbergrid = () => {
   ];
 
   return (
+
     <div className="container">
 
       <div className="grid">
         {numbersData.map((item) => (
           <div key={item.number} className="item">
             <h2>Number {item.number}</h2>
-            <p>{item.data}</p>
+            <p className="item-data">{item.data}</p>
           </div>
         ))}
       </div>
@@ -29,5 +30,6 @@ const Numbergrid = () => {
 };
 
 export default Numbergrid;
+
 
 

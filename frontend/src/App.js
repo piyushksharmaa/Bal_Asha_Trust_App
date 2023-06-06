@@ -1,22 +1,22 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Numbergrid from "./components/Data";
-import Footer from "./components/Footer";
-
 import "./styles/Header.scss";
 import "./styles/App.scss";
+import AddChildrenDataPage from "./components/login-signup-front/Multistep";
+
 function App() {
   return (
     <div className="App">
-      <Router>
+      {/* <Router>
         <Header />
         <Routes>
-          <Route />
+          <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/Contact" element={< MultiStepForm />} />
+          <Route path="/Donate" element={< DonationForm />} />
         </Routes>
         <Numbergrid />
+      </Router> */}
 
-      </Router>
+      <AddChildrenDataPage />
+
 
     </div>
   );
