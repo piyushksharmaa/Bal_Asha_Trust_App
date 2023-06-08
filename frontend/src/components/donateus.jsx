@@ -10,9 +10,7 @@ const DonationForm = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        // You can access the form data using the state variables (inputArea, companyName, personName, contactNumber, selectedType)
-        // Perform necessary validations and API calls if required
+        
         console.log({
             inputArea,
             companyName,
@@ -20,7 +18,7 @@ const DonationForm = () => {
             contactNumber,
             selectedType
         });
-        // Reset the form fields
+        
         setInputArea("");
         setCompanyName("");
         setPersonName("");
@@ -97,7 +95,7 @@ const DonationForm = () => {
                         <option value="clothes">Clothes</option>
                         <option value="food">Food</option>
                         <option value="toys">Toys</option>
-                        {/* Add more options as needed */}
+                        
                     </select>
                 </div>
 

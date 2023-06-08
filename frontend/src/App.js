@@ -2,6 +2,7 @@ import "./styles/Header.scss";
 import "./styles/App.scss";
 import AddChildrenDataPage from "./components/login-signup-front/Multistep";
 
+
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
       </Router> */}
 
       <AddChildrenDataPage />
+
 
 
     </div>

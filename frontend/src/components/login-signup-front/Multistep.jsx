@@ -1,185 +1,184 @@
-import React, { useState } from "react";
-import { Container, Typography, TextField, Button } from "@mui/material";
+import React, { useState } from 'react';
+import './multistep.css';
+import axios from 'axios';
 
-const AddChildrenDataPage = () => {
-    const [formData, setFormData] = useState({
-        state: "",
-        district: "",
-        shelterHome: "",
-        dateOfCreation: "",
-        childName: "",
-        caseNumber: "",
-        gender: "",
-        dateOfAdmission: "",
-        reasonForAdmission: "",
-        caseHistory: "",
-        familyVisits: "",
-        lengthOfStay: "",
-    });
+const AddChildDataPage = () => {
+    const [current, setCurrent] = useState(1);
 
-    const handleChange = (e) => {
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            [e.target.name]: e.target.value,
-        }));
+    const nextBtnClick = () => {
+        setCurrent(current + 1);
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const prevBtnClick = () => {
+        setCurrent(current - 1);
+    };
+
+    const submitBtnClick = async () => {
+        const form = document.querySelector('form');
+        const formData = new FormData(form);
+
+        const data = Object.fromEntries(formData.entries());
+        console.log(data); // Do whatever you want with the form data
 
         try {
-            const response = await fetch("/api/children", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
+            // Make an HTTP POST request to your server endpoint
+            const response = await axios.post('/api/submitFormData', data);
 
-            if (response.ok) {
-                alert("Form data submitted successfully!");
-            } else {
-                alert("Error submitting form data.");
-            }
+            console.log(response.data); // Response from the server
+
+            setCurrent(current + 1);
+            setTimeout(() => {
+                alert("Your Form Successfully Signed up");
+                window.location.reload();
+            }, 800);
         } catch (error) {
-            console.log("Error:", error);
-            alert("Error submitting form data.");
+            console.error(error);
         }
     };
 
     return (
-        <Container maxWidth="sm">
-            <Typography variant="h4" align="center" gutterBottom>
-                Add Children Data
-            </Typography>
+        <div className="container">
+            <header>Add Child Data</header>
+            <div className="progress-bar">
+                {/* Progress bar code */}
+                <div className={`step ${current >= 1 ? 'active' : ''}`}>
+                    <p className={current >= 1 ? 'active' : ''}>Orphanage Details</p>
+                    <div className={`bullet ${current >= 1 ? 'active' : ''}`}>
+                        <span className="check">&#10003;</span>
+                    </div>
+                </div>
+                <div className={`step ${current >= 2 ? 'active' : ''}`}>
+                    <p className={current >= 2 ? 'active' : ''}>Child Details</p>
+                    <div className={`bullet ${current >= 2 ? 'active' : ''}`}>
+                        <span className="check">&#10003;</span>
+                    </div>
+                </div>
+                <div className={`step ${current >= 3 ? 'active' : ''}`}>
+                    <p className={current >= 3 ? 'active' : ''}>Case Details</p>
+                    <div className={`bullet ${current >= 3 ? 'active' : ''}`}>
+                        <span className="check">&#10003;</span>
+                    </div>
+                </div>
+                <div className={`step ${current >= 4 ? 'active' : ''}`}>
+                    <p className={current >= 4 ? 'active' : ''}>Submit Details</p>
+                    <div className={`bullet ${current >= 4 ? 'active' : ''}`}>
+                        <span className="check">&#10003;</span>
+                    </div>
+                </div>
+            </div>
+            <div className="form-outer">
+                <form>
+                    {/* Form pages */}
+                    {current === 1 && (
+                        <div className="page slide-page">
+                            <div className="title">Orphanage Information:</div>
+                            <div className="field">
+                                <div className="label">State:</div>
+                                <input type="text" name="state" />
+                            </div>
+                            <div className="field">
+                                <div className="label">District:</div>
+                                <input type="text" name="district" />
+                            </div>
+                            <div className="field">
+                                <div className="label">Name of Shelter Home:</div>
+                                <input type="text" name="shelterHomeName" />
+                            </div>
 
-            <form onSubmit={handleSubmit}>
-                <Typography variant="h6" gutterBottom>
-                    Orphanage Details
-                </Typography>
+                            <div className="field">
+                                <button className="next" onClick={nextBtnClick}>
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    )}
 
-                <TextField
-                    label="State"
-                    name="state"
-                    value={formData.state}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
+                    {current === 2 && (
+                        <div className="page">
+                            <div className="title">Child Details</div>
+                            <div className="field">
+                                <div className="label">First Name:</div>
+                                <input type="text" name="firstName" />
+                            </div>
+                            <div className="field">
+                                <div className="label">Date Of Birth:</div>
+                                <input type="number" name="dateOfBirth" />
+                            </div>
+                            <div className="field">
+                                <div className="label">Gender:</div>
+                                <select name="gender">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div className="field btns">
+                                <button className="prev" onClick={prevBtnClick}>
+                                    Previous
+                                </button>
+                                <button className="next" onClick={nextBtnClick}>
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    )}
 
-                <TextField
-                    label="District"
-                    name="district"
-                    value={formData.district}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
+                    {current === 3 && (
+                        <div className="page">
+                            <div className="title">Case Information</div>
+                            <div className="field">
+                                <div className="label">Case Number:</div>
+                                <input type="text" name="caseNumber" />
+                            </div>
+                            <div className="field">
+                                <div className="label">Date of Creation:</div>
+                                <input type="number" name="dateOfCreation" />
+                            </div>
+                            <div className="field">
+                                <div className="label">Length Of Stay (Days):</div>
+                                <input type="number" name="lengthOfStay" />
+                            </div>
+                            <div className="field btns">
+                                <button className="prev" onClick={prevBtnClick}>
+                                    Previous
+                                </button>
+                                <button className="next" onClick={nextBtnClick}>
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    )}
 
-                <TextField
-                    label="Name of Shelter Home"
-                    name="shelterHome"
-                    value={formData.shelterHome}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <TextField
-                    label="Date of Creation"
-                    name="dateOfCreation"
-                    value={formData.dateOfCreation}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <Typography variant="h6" gutterBottom>
-                    Child Details
-                </Typography>
-
-                <TextField
-                    label="Name"
-                    name="childName"
-                    value={formData.childName}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <TextField
-                    label="Case Number"
-                    name="caseNumber"
-                    value={formData.caseNumber}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <TextField
-                    label="Gender"
-                    name="gender"
-                    value={formData.gender}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <Typography variant="h6" gutterBottom>
-                    Case Details
-                </Typography>
-
-                <TextField
-                    label="Date of Admission"
-                    name="dateOfAdmission"
-                    value={formData.dateOfAdmission}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <TextField
-                    label="Reason for Admission"
-                    name="reasonForAdmission"
-                    value={formData.reasonForAdmission}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <TextField
-                    label="Case History"
-                    name="caseHistory"
-                    value={formData.caseHistory}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <TextField
-                    label="Number of family visits/Phone Calls"
-                    name="familyVisits"
-                    value={formData.familyVisits}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <TextField
-                    label="Length of Stay"
-                    name="lengthOfStay"
-                    value={formData.lengthOfStay}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <Button type="submit" variant="contained" color="primary">
-                    Submit
-                </Button>
-            </form>
-        </Container>
+                    {current === 4 && (
+                        <div className="page">
+                            <div className="title">Case Details</div>
+                            <div className="field">
+                                <div className="label">Reason Of Admission:</div>
+                                <input type="text" name="reasonOfAdmission" />
+                            </div>
+                            <div className="field">
+                                <div className="label">Number Of Family Visits/Phone Calls:</div>
+                                <input type="number" name="numberOfVisits" />
+                            </div>
+                            <div className="field">
+                                <div className="label">Case History:</div>
+                                <input type="text" name="caseHistory" />
+                            </div>
+                            <div className="field btns">
+                                <button className="prev" onClick={prevBtnClick}>
+                                    Previous
+                                </button>
+                                <button className="submit" onClick={submitBtnClick}>
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                </form>
+            </div>
+        </div>
     );
 };
 
-export default AddChildrenDataPage;
+export default AddChildDataPage;
+
