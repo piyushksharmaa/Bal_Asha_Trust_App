@@ -1,12 +1,12 @@
 import React from "react";
-export const Maindata2 = [
+export const Maindata3 = [
   {
     title: "Name",
     value: "Piyush Kumar Sharma",
   },
   {
     title: "Level",
-    value: "1",
+    value: "2",
   },
   {
     title: "UserId",

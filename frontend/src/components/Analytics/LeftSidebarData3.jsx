@@ -44,21 +44,3 @@ export const LeftSidebarData_Orphanages = [
     icon: <ChildCareIcon />,
   },
 ];
-export const LeftSidebarData_Brands = [
-  {
-    title: "Brand1",
-    icon: <BusinessIcon />,
-  },
-  {
-    title: "Brand2",
-    icon: <BusinessIcon />,
-  },
-  {
-    title: "Brand3",
-    icon: <BusinessIcon />,
-  },
-  {
-    title: "Brand4",
-    icon: <BusinessIcon />,
-  },
-];

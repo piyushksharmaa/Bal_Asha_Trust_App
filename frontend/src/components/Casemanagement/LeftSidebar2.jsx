@@ -57,22 +57,6 @@ const LeftSidebar = () => {
           })}
         </ul>
       </div>
-      <div className="brands2">
-        <Searchbar2
-          placeholder="Enter a Brand Name..."
-          data={LeftSidebarData_Brands}
-        />
-        <ul className="LeftsidebarList2">
-          {LeftSidebarData_Brands.map((val, key) => {
-            return (
-              <li key={key} className="row2">
-                <div id="icon2">{val.icon}</div>
-                <div id="title2">{val.title}</div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
     </div>
   );
 };

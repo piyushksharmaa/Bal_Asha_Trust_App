@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { createContext } from "react";
 import { Maindata2 } from "./Maindata2";
 import { AppContext } from "./Dashboard2";
+import { Carousel } from "react-responsive-carousel";
 const Main = () => {
   const { sidebar } = useContext(AppContext);
   return (

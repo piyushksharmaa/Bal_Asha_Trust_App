@@ -33,6 +33,7 @@
         cursor: pointer;
         color: white;
         background-color: rgb(60, 212, 83);
+        border-radius: 8px;
       }
       #icon2 {
         flex: 30%;
@@ -65,6 +66,7 @@
 
   .name2 {
     margin: 0.5rem;
+    margin-left: 1.5rem;
   }
   .date2 {
     display: flex;
@@ -83,8 +85,9 @@
     margin: 0 auto;
     margin-top: 60px;
     border-radius: 2%;
+    height: 60%;
     width: 609px;
-    background-color: rgba(224, 224, 224, 0.8);
+    background-color: rgba(224, 224, 224, 0.9);
     display: flex;
     align-items: center;
     .data2 {
@@ -110,12 +113,13 @@
       }
     }
     .image2 {
-      width: 50%;
+      width: 60%;
       display: flex;
       justify-content: center;
       align-items: center;
       > img {
         border-radius: 50%;
+        width: 200px;
       }
     }
   }
@@ -178,7 +182,7 @@
     }
   }
   .rightsidebaractive2 {
-    height: 589px;
+    height: 615px;
     width: 250px;
     border-top-left-radius: 40px;
     > h2 {
@@ -225,7 +229,7 @@
   }
   .rightsidebarnot2 {
     transition: 0.3s ease-in-out;
-    height: 100vh;
+    height: 615px;
     width: 250px;
     > h2 {
       margin-left: 50px;
